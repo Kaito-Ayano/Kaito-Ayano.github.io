@@ -1,0 +1,22 @@
+{
+  "name": "qingti-app",
+  "version": "1.0.0",
+  "description": "轻体 · 情绪适配+体态矫正+久坐修复 生活化轻健身APP",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static HTML app - no build step needed'",
+    "cap:add": "npx cap add android",
+    "cap:sync": "npx cap sync",
+    "cap:open": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^5.0.0",
+    "@capacitor/core": "^5.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.0.0"
+  },
+  "keywords": ["fitness", "health", "posture", "pwa"],
+  "author": "QingTi Team",
+  "license": "MIT"
+}

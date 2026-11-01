@@ -1,0 +1,67 @@
+{
+  "company": {
+    "name_cn": "米哈游", "name_en": "miHoYo / HoYoverse",
+    "founded": "2012-02-13", "founders": ["蔡浩宇", "刘伟", "罗宇皓"],
+    "headquarters": "上海 Shanghai", "ipo_status": "未上市（2017年申报A股，2020年9月撤回）",
+    "mission_cn": "技术宅拯救世界", "mission_en": "Tech Otakus Save the World",
+    "global_offices": ["Singapore", "United States", "Canada", "Japan", "Korea"]
+  },
+  "financial": {
+    "unit": "RMB million (人民币百万元)",
+    "rows": [
+      {"year": 2014, "revenue": 103, "net_profit": 65.6, "source": "招股书审计", "source_level": "prospectus_audited"},
+      {"year": 2015, "revenue": 175, "net_profit": 127, "source": "招股书审计", "source_level": "prospectus_audited"},
+      {"year": 2016, "revenue": 424, "net_profit": 273, "source": "招股书审计", "source_level": "prospectus_audited"},
+      {"year": 2017, "revenue": null, "net_profit": null, "source": "未披露全年（仅H1：营收588/净利447）", "source_level": "not_disclosed"},
+      {"year": 2018, "revenue": null, "net_profit": null, "source": "未披露", "source_level": "not_disclosed"},
+      {"year": 2019, "revenue": null, "net_profit": null, "source": "未披露", "source_level": "not_disclosed"},
+      {"year": 2020, "revenue": 10130, "net_profit": null, "source": "上海企业百强榜（2020营收）", "source_level": "official_list"},
+      {"year": 2021, "revenue": 32854, "net_profit": 18540, "source": "21财经/媒体估算", "source_level": "media_estimate"},
+      {"year": 2022, "revenue": 27340, "net_profit": 16145, "net_assets": 37402, "source": "光明日报·全国文化企业30强", "source_level": "official_media"},
+      {"year": 2023, "revenue": 44100, "net_profit": null, "source": "36氪/媒体估算", "source_level": "media_estimate"},
+      {"year": 2024, "revenue": 34000, "net_profit": null, "source": "36氪/媒体估算", "source_level": "media_estimate"},
+      {"year": 2025, "revenue": 78000, "net_profit": null, "source": "36氪/媒体估算", "source_level": "media_estimate"}
+    ]
+  },
+  "genshin_mobile_revenue": {
+    "unit": "USD million (移动端，Sensor Tower/媒体估算)",
+    "rows": [
+      {"year": 2020, "revenue_usd_m": 400, "note": "9月上线，仅Q4"},
+      {"year": 2021, "revenue_usd_m": 1200, "note": "媒体估算区间1200-1800"},
+      {"year": 2022, "revenue_usd_m": 1900, "note": "峰值"},
+      {"year": 2023, "revenue_usd_m": 1300, "note": ""},
+      {"year": 2024, "revenue_usd_m": 700, "note": ""},
+      {"year": 2025, "revenue_usd_m": 330, "note": "估算区间320-345"}
+    ]
+  },
+  "products": [
+    {"name_cn": "崩坏学园2", "name_en": "Houkai Gakuen 2", "launch": "2014-01", "genre": "2D射击", "global": false},
+    {"name_cn": "崩坏3", "name_en": "Honkai Impact 3rd", "launch": "2016-10", "genre": "3D动作RPG", "global": true},
+    {"name_cn": "未定事件簿", "name_en": "Tears of Themis", "launch": "2020-07", "genre": "恋爱推理", "global": true},
+    {"name_cn": "原神", "name_en": "Genshin Impact", "launch": "2020-09-28", "genre": "开放世界ARPG", "global": true},
+    {"name_cn": "崩坏：星穹铁道", "name_en": "Honkai: Star Rail", "launch": "2023-04-26", "genre": "回合制RPG", "global": true},
+    {"name_cn": "绝区零", "name_en": "Zenless Zone Zero", "launch": "2024-07-04", "genre": "都市幻想ARPG", "global": true}
+  ],
+  "employees": [
+    {"year": 2014, "count": 50, "source": "中国经济网"},
+    {"year": 2016, "count": 200, "source": "新浪财经"},
+    {"year": 2022, "count": 4000, "source": "米哈游临港合作新闻稿"},
+    {"year": 2025, "count": 5000, "source": "米哈游官网"}
+  ],
+  "strategy": {
+    "product_timeline": "崩坏学园2(2014)→崩坏3(2016)→未定事件簿(2020)→原神(2020)→星穹铁道(2023)→绝区零(2024)",
+    "globalization": "HoYoverse品牌2022年成立，总部新加坡，全球发行覆盖13+语言",
+    "tech_ai": "卡通渲染、AI、云游戏；原神团队超1400人",
+    "ip_ecosystem": "动画、漫画、音乐、周边、线下主题店",
+    "competitive_position": "二次元开放世界赛道全球龙头，原神累计移动端收入超90亿美元"
+  },
+  "sources": [
+    {"indicator": "营业收入 2014-2016", "source": "米哈游招股说明书（证监会披露）", "level": "招股书审计"},
+    {"indicator": "营业收入 2020", "source": "2021上海企业百强榜（上海市企业联合会）", "level": "官方榜单"},
+    {"indicator": "营业收入/净利润 2022", "source": "光明日报·第十五届全国文化企业30强提名", "level": "官方媒体"},
+    {"indicator": "营业收入 2021/2023/2024/2025", "source": "21财经、36氪等媒体估算", "level": "媒体估算"},
+    {"indicator": "原神移动端收入", "source": "Sensor Tower、Priori Data、GURUGAMER", "level": "第三方估算"},
+    {"indicator": "员工数", "source": "米哈游官网、临港合作新闻稿", "level": "官方通稿"},
+    {"indicator": "产品上线时间", "source": "米哈游官网里程碑、HoYoverse官方新闻", "level": "官方通稿"}
+  ]
+}

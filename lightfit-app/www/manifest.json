@@ -1,0 +1,40 @@
+{
+  "name": "轻体 · 生活化轻健身",
+  "short_name": "轻体",
+  "description": "情绪适配+体态矫正+久坐修复，普通人的生活化轻健身APP",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F4F6F9",
+  "theme_color": "#3ECFA8",
+  "orientation": "portrait",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "fitness"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "开始训练",
+      "short_name": "训练",
+      "description": "快速开始今日训练",
+      "url": "/index.html#home"
+    },
+    {
+      "name": "体态检测",
+      "short_name": "检测",
+      "url": "/index.html#posture"
+    }
+  ]
+}
