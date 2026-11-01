@@ -1,82 +1,108 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaito Ayano · Portfolio</title>
+<title>财务分析与数据可视化作品集</title>
 <style>
-  body { font-family: "Segoe UI", "Microsoft YaHei", sans-serif; margin: 0; background: #F6F8FA; color: #16324F; }
-  header { background: #16324F; color: #fff; padding: 40px 24px; }
-  header h1 { margin: 0 0 6px; font-size: 26px; }
-  header p { margin: 0; opacity: .85; }
-  main { max-width: 860px; margin: 0 auto; padding: 24px; }
-  section { background: #fff; border: 1px solid #D8E0E8; border-radius: 10px; padding: 20px 24px; margin: 18px 0; }
-  h2 { margin: 0 0 10px; font-size: 18px; }
-  li { margin: 6px 0; }
-  a { color: #0E7C7B; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .note { font-size: 13px; color: #5a6b7b; }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: #5a6b7b; }
+  body { font-family: "Times New Roman", "SimSun", "宋体", serif; margin: 0; background: #F6F8FA; color: #16324F; }
+  header { background: #16324F; color: #fff; padding: 34px 24px 28px; }
+  .wrap { max-width: 860px; margin: 0 auto; position: relative; }
+  .lang { position: absolute; top: 0; right: 0; font-size: 13px; }
+  .lang a { color: #cfe0ee; text-decoration: none; margin-left: 12px; }
+  .lang a.cur { color: #fff; font-weight: bold; border-bottom: 2px solid #3ECFA8; padding-bottom: 2px; }
+  h1 { margin: 0 0 8px; font-size: 26px; }
+  .sub { margin: 0; opacity: .85; font-size: 14px; }
+  main { max-width: 860px; margin: 0 auto; padding: 22px 24px; }
+  section { background: #fff; border: 1px solid #D8E0E8; border-radius: 10px; padding: 16px 22px; margin: 16px 0; }
+  h2 { font-size: 18px; margin: 0 0 2px; }
+  .cnote { font-size: 12px; color: #5a6b7b; margin: 0 0 10px; }
+  .item { margin: 13px 0; }
+  .item a { font-size: 15.5px; font-weight: bold; color: #0E7C7B; text-decoration: none; }
+  .item a:hover { text-decoration: underline; }
+  .item .tail { font-size: 13.5px; color: #16324F; }
+  .desc { font-size: 13px; color: #5a6b7b; margin-top: 2px; line-height: 1.55; }
+  footer { text-align: center; font-size: 12px; color: #5a6b7b; padding: 18px; }
 </style>
 </head>
 <body>
-<header>
-  <h1>Portfolio of Kaito Ayano</h1>
-  <p>Data analysis × app development · datasets, dashboards and apps</p>
-</header>
-<main>
-
-  <section>
-    <h2>🎬 产品演示视频 / Demo video</h2>
-    <ul>
-      <li><a href="https://kaito-ayano.github.io/Sentinel/media/demo-90s.mp4" target="_blank" rel="noopener">Sentinel &amp; Arbiter · 90 秒导览（含讲解字幕）/ 90-second guided demo</a></li>
-      <li><a href="https://github.com/Kaito-Ayano/LightFit-Android" target="_blank" rel="noopener">LightFit · 轻体 Android (Java) — 源码仓库 / source repository</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>📊 交互式仪表盘 / Interactive dashboards</h2>
-    <ul>
-      <li><a href="datasets/huawei/02_Dashboard/Huawei_2015-2025_Dashboard.html">Huawei 2015–2025 财务分析仪表盘（中/英/俄）</a></li>
-      <li><a href="datasets/mihoyo/02_Dashboard/miHoYo_Dashboard.html">miHoYo 2014–2025 财务分析仪表盘</a></li>
-      <li><a href="datasets/lightfit-dashboard/LightFit_Dashboard.html">LightFit 赛事仪表盘（中亚版）</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>📁 数据集与工作簿 / Datasets &amp; workbooks</h2>
-    <ul>
-      <li>Huawei 年报四语工作簿：
-        <a href="datasets/huawei/01_Excel/01_CN_IFRS_Huawei_Annual_Reports_2015-2025.xlsx">中文 IFRS</a> ·
-        <a href="datasets/huawei/01_Excel/02_EN_IFRS_Huawei_Annual_Reports_2015-2025.xlsx">English IFRS</a> ·
-        <a href="datasets/huawei/01_Excel/03_RU-A_IFRS_Huawei_%D0%93%D0%BE%D0%B4%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D1%82%D1%87%D1%91%D1%82%D1%8B_2015-2025_%D0%9C%D0%A1%D0%A4%D0%9E.xlsx">Русский МСФО</a> ·
-        <a href="datasets/huawei/01_Excel/04_RU-B_%D0%A0%D0%A1%D0%91%D0%A3_Huawei_%D0%91%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%B1%D0%B0%D0%BB%D0%B0%D0%BD%D1%81.xlsx">Русский РСБУ</a>
-      </li>
-      <li><a href="datasets/huawei/03_Documentation/Huawei_Coursework_Trilingual_Note.docx">Huawei 课程作业三语说明 / trilingual coursework note</a></li>
-      <li><a href="datasets/mihoyo/01_Excel/miHoYo_Financial_Analysis_2014-2025.xlsx">miHoYo 财务分析工作簿（含数据表）</a> ·
-          <a href="datasets/mihoyo/03_Data/mihoyo_data.json">原始数据 JSON</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>📱 LightFit 应用 / LightFit app</h2>
-    <ul>
-      <li><a href="lightfit-app/demo/lightfit_v8.4.3_demo.html">v8.4.3 独立演示（单文件，浏览器直接打开）</a></li>
-      <li><a href="lightfit-app/www/index.html">Web 版源码在线运行（v8.2 静态资源）</a></li>
-      <li><a href="https://github.com/Kaito-Ayano/LightFit-Android" target="_blank" rel="noopener">Java 重制版（Android）源码 / Android Java rebuild</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>📑 商业计划书 / Business plan</h2>
-    <ul>
-      <li><a href="business-plan/LightFit-Business-Plan-En.pptx">LightFit Business Plan (English, PPT — 点击下载)</a></li>
-    </ul>
-  </section>
-
-  <p class="note">本页为功能占位版；视觉设计将在后续 UI 阶段统一升级。<br>
-  This page is a functional placeholder; the visual design will be upgraded in a later UI phase.</p>
-</main>
-<footer>No personal data is collected. All content © Kaito Ayano, all rights reserved.</footer>
-</body>
-</html>
+<header><div class="wrap">
+<div class="lang"><a href="index.html" class="cur">中文</a> <a href="en.html">English</a> <a href="ru.html">Русский</a></div>
+<h1>财务分析与数据可视化作品集</h1>
+<p class="sub">财务分析 × 数据可视化 · 数据集、交互式仪表盘与商业计划书</p>
+</div></header><main>
+<section>
+<h2>1. 华为年报多准则数据集与可视化看板</h2>
+<p class="cnote">个人独立交付 · 2015–2025 十一个财年</p>
+<div class="item">
+<a href="datasets/huawei/02_Dashboard/Huawei_2015-2025_Dashboard.html">华为年报交互式可视化看板</a><span class="tail">（2015–2025 · 中/英/俄）</span>
+<div class="desc">覆盖营收利润、资产负债、现金流、比率趋势与非财务指标，6 页签 33 张图表，支持三语切换。</div>
+</div>
+<div class="item">
+<a href="datasets/huawei/01_Excel/01_CN_IFRS_Huawei_Annual_Reports_2015-2025.xlsx">华为年报数据库 · 中文 IFRS 工作簿</a><span class="tail"></span>
+<div class="desc">2015–2025 十一个财年三大报表与附注科目，17 张表同构，28 项财务主指标 + 19 项 ESG 指标。</div>
+</div>
+<div class="item">
+<a href="datasets/huawei/01_Excel/02_EN_IFRS_Huawei_Annual_Reports_2015-2025.xlsx">华为年报数据库 · 英文 IFRS 工作簿</a><span class="tail"></span>
+<div class="desc">与中文版同构，支持跨语言核对与国际读者阅读。</div>
+</div>
+<div class="item">
+<a href="datasets/huawei/01_Excel/03_RU-A_IFRS_Huawei_Годовые_отчёты_2015-2025_МСФО.xlsx">华为年报数据库 · 俄文 МСФО 工作簿</a><span class="tail"></span>
+<div class="desc">IFRS 俄文口径，适配中亚市场阅读习惯。</div>
+</div>
+<div class="item">
+<a href="datasets/huawei/01_Excel/04_RU-B_РСБУ_Huawei_Бухгалтерский_баланс.xlsx">华为年报数据库 · 俄文 РСБУ 工作簿</a><span class="tail"></span>
+<div class="desc">俄罗斯法定准则口径，支持 IFRS/РСБУ 双准则对照。</div>
+</div>
+<div class="item">
+<a href="datasets/huawei/03_Documentation/Huawei_Coursework_Trilingual_Note.docx">华为财务研究项目说明</a><span class="tail">（三语）</span>
+<div class="desc">数据来源、建库口径与异常披露处理的系统说明，中/英/俄三语撰写。</div>
+</div>
+</section>
+<section>
+<h2>2. 德勤数字化精英挑战赛（2026 Deloitte Digital Camp）</h2>
+<div class="item">
+<a href="https://kaito-ayano.github.io/Sentinel/">交互式审计 Demo：Sentinel</a><span class="tail"></span>
+<div class="desc">以“规则初筛 → 团伙关系图谱 → 人工复核留痕”还原三段式数字化审计流程；风险阈值可调，复核记录一键导出，合成数据可复现。</div>
+</div>
+<div class="item">
+<a href="https://kaito-ayano.github.io/Arbiter/">AI 治理诊断工作台：Arbiter</a><span class="tail"></span>
+<div class="desc">面向金融机构 AI 治理的诊断工具：风险画像 → 成熟度雷达 → 人工裁决 → 90 天治理路线图；监管映射 SR 11-7、BCBS 239 与欧盟《人工智能法案》。</div>
+</div>
+<div class="item">
+<a href="https://kaito-ayano.github.io/Sentinel/media/demo-90s.mp4">演示视频：Sentinel 与 Arbiter 90 秒导览（含讲解字幕）</a><span class="tail"></span>
+<div class="desc">两个作品的完整操作演示与讲解；若在线 Demo 无法打开，可观看此视频。</div>
+</div>
+</section>
+<section>
+<h2>3. 中国国际大学生创新大赛（中亚赛区）· 轻体 LightFit</h2>
+<div class="item">
+<a href="lightfit-app/demo/lightfit_v8.4.3_demo.html">轻体 LightFit v8.4.3 独立演示</a><span class="tail"></span>
+<div class="desc">生活化健康管理平台的完整交互演示，浏览器直接打开，无需安装。</div>
+</div>
+<div class="item">
+<a href="lightfit-app/www/index.html">轻体 LightFit · Web 版在线运行</a><span class="tail">（v8.2）</span>
+<div class="desc">中/英/俄/哈/韩五语言健康管理系统 Web 端，离线优先架构。</div>
+</div>
+<div class="item">
+<a href="https://github.com/Kaito-Ayano/LightFit-Android">轻体 LightFit · Android (Java) 源码仓库</a><span class="tail"></span>
+<div class="desc">Java 重制版：五语言界面、端侧 AI 体态识别、AES-256 本地加密存储——从需求分析到可安装产品的完整交付。</div>
+</div>
+<div class="item">
+<a href="business-plan/LightFit-Business-Plan-En.pptx">轻体 LightFit 商业计划书</a><span class="tail">（英文 PPT）</span>
+<div class="desc">面向中亚市场的健康管理产品全案：市场分析、产品设计与运营策略。</div>
+</div>
+</section>
+<section>
+<h2>4. 更多财务分析实践</h2>
+<div class="item">
+<a href="datasets/mihoyo/02_Dashboard/miHoYo_Dashboard.html">miHoYo 2014–2025 财务分析仪表盘</a><span class="tail"></span>
+<div class="desc">成长型游戏公司十余年财务表现可视化：收入结构、研发投入与利润趋势。</div>
+</div>
+<div class="item">
+<a href="datasets/mihoyo/01_Excel/miHoYo_Financial_Analysis_2014-2025.xlsx">miHoYo 财务分析工作簿与原始数据</a><span class="tail"></span>
+<div class="desc">完整数据底层与计算过程，结果可复现、可验证（附机读 JSON）。</div>
+</div>
+</section>
+<footer>© Kaito Ayano · 保留所有权利 / All rights reserved</footer>
+</main></body></html>
