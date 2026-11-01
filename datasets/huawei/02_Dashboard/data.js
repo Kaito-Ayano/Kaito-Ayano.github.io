@@ -1,5 +1,5 @@
 /* data.js — Huawei 2015–2025 annual report dataset (RMB million, IFRS)
-   Author: Лю Цзицзянь (Kaito Ayano) */
+   Author: Лю Цзицзянь () */
 var YRS=['FY2015','FY2016','FY2017','FY2018','FY2019','FY2020','FY2021','FY2022','FY2023','FY2024','FY2025'];
 
 var D={

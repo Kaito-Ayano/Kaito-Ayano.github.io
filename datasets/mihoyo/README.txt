@@ -1,5 +1,5 @@
 miHoYo (HoYoverse) — 2014–2025 Financial & Strategic Analysis
-Author metadata: Лю Цзицзянь (Kaito Ayano) | 2026-10
+Author metadata: Лю Цзицзянь () | 2026-10
 
 Structure:
   01_Excel/       miHoYo_Financial_Analysis_2014-2025.xlsx (bilingual EN/ZH, IFRS, 6 sheets incl. Sources Appendix)

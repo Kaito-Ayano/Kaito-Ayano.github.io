@@ -1,4 +1,4 @@
-/* charts.js — ECharts options, KPI cards, routing. Author: Лю Цзицзянь (Kaito Ayano) */
+/* charts.js — ECharts options, KPI cards, routing. Author: Лю Цзицзянь () */
 var C=['#DD0022','#780018','#AA0033','#CC0044','#595959','#BFBFBF','#FA8095','#780018'];
 
 /* Trilingual label: English (largest) | Русский (mid) | 中文 (smallest) via ECharts rich text */
