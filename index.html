@@ -60,7 +60,23 @@
 </div>
 </section>
 <section>
-<h2>2. 德勤数字化精英挑战赛（2026 Deloitte Digital Camp）</h2>
+<h2>2. 银行流水 × 账面 逐笔勾稽工具（recon）</h2>
+<p class="cnote">AI Agent 协作交付 ｜ 需求定义 → 方案评审 → 实现验证 → 人工复核兜底 ｜ 合成数据（虚构公司「星桥贸易有限公司」）<br>AI 负责逐笔对账找差异，人工负责裁决与复核——这正是会计「银行倒盘 / 银行对账」的完整流程演示。</p>
+<div class="item">
+<a href="datasets/recon-tool/recon_report.html">银行流水 × 账面 逐笔勾稽 · 结果报告</a><span class="tail">（含四类差异台账与银行余额调节表）</span>
+<div class="desc">以「需求定义 → 方案评审 → 实现验证」的 AI Agent 协作流程完成：先按参考号精确配对，未命中再按金额+户名+方向+日期（±3 天容差）做 1:1 模糊匹配，严格保证一笔银行记录只对应一笔账面记录，剩余记录归入单边台账。输出金额不符、日期错位、重复记账、单边四类差异台账与平衡的银行余额调节表，每条差异均带「人工复核」列。</div>
+</div>
+<div class="item">
+<a href="datasets/recon-tool/recon.py">勾稽工具源码 recon.py</a><span class="tail"></span>
+<div class="desc">纯 Python 标准库实现：零第三方依赖、离线可运行、结果可复现（固定随机种子合成样例数据）；关键判定均带注释，差异分类与调节表调整项一一对应。协作方式：AI Agent 生成与加固代码，人对匹配规则、数据口径与验收标准逐项裁决（human-in-the-loop），并以预先埋入的差异清单（ground truth）做回归验证——确保 AI 输出可解释、可审计、可复核。</div>
+</div>
+<div class="item">
+<a href="datasets/recon-tool/output/reconciliation.csv">银行余额调节表（CSV）</a><span class="tail"></span>
+<div class="desc">将银行对账单期末余额逐项调节至企业账面期末余额：未达账、银行已记企业未记、金额更正、重复记账分列展示，调整合计与四类差异台账交叉印证（校验差异 0.00）。调节表与差异台账互为审计证据——任何一个数字都能一路追溯到原始流水，这是审计与核算工作最看重的可追溯性。</div>
+</div>
+</section>
+<section>
+<h2>3. 德勤数字化精英挑战赛（2026 Deloitte Digital Camp）</h2>
 <div class="item">
 <a href="https://kaito-ayano.github.io/Sentinel/">交互式审计 Demo：Sentinel</a><span class="tail"></span>
 <div class="desc">以“规则初筛 → 团伙关系图谱 → 人工复核留痕”还原三段式数字化审计流程；风险阈值可调，复核记录一键导出，合成数据可复现。</div>
@@ -75,7 +91,7 @@
 </div>
 </section>
 <section>
-<h2>3. 中国国际大学生创新大赛（中亚赛区）· 轻体 LightFit</h2>
+<h2>4. 中国国际大学生创新大赛（中亚赛区）· 轻体 LightFit</h2>
 <div class="item">
 <a href="lightfit-app/demo/lightfit_v8.4.3_demo.html">轻体 LightFit v8.4.3 独立演示</a><span class="tail"></span>
 <div class="desc">生活化健康管理平台的完整交互演示，中/英/俄/哈/韩五语言界面，浏览器直接打开，无需安装。</div>
@@ -103,7 +119,7 @@
 </div>
 </section>
 <section>
-<h2>4. 更多财务分析实践</h2>
+<h2>5. 更多财务分析实践</h2>
 <div class="item">
 <a href="datasets/mihoyo/02_Dashboard/miHoYo_Dashboard.html">miHoYo 2014–2025 财务分析仪表盘</a><span class="tail"></span>
 <div class="desc">成长型游戏公司十余年财务表现可视化：收入结构、研发投入与利润趋势。</div>
@@ -111,22 +127,6 @@
 <div class="item">
 <a href="datasets/mihoyo/01_Excel/miHoYo_Financial_Analysis_2014-2025.xlsx">miHoYo 财务分析工作簿与原始数据</a><span class="tail"></span>
 <div class="desc">完整数据底层与计算过程，结果可复现、可验证（附机读 JSON）。</div>
-</div>
-</section>
-<section>
-<h2>5. 银行流水 × 账面 逐笔勾稽工具（recon）</h2>
-<p class="cnote">AI Agent 协作 · 整理与复盘 ｜ 需求定义 → 方案评审 → 实现验证 → 人工复核兜底 ｜ 合成数据（虚构公司「星桥贸易有限公司」）<br>AI 负责逐笔对账找差异，人工负责裁决与复核——这正是会计「银行倒盘 / 银行对账」的完整流程演示。</p>
-<div class="item">
-<a href="datasets/recon-tool/recon_report.html">银行流水 × 账面 逐笔勾稽 · 结果报告</a><span class="tail">（含四类差异台账与银行余额调节表）</span>
-<div class="desc">以「需求定义 → 方案评审 → 实现验证」的 AI Agent 协作流程完成：先按参考号精确配对，未命中再按金额+户名+方向+日期（±3 天容差）做 1:1 模糊匹配，严格保证一笔银行记录只对应一笔账面记录，剩余记录归入单边台账。输出金额不符、日期错位、重复记账、单边四类差异台账与平衡的银行余额调节表，每条差异均带「人工复核」列。</div>
-</div>
-<div class="item">
-<a href="datasets/recon-tool/recon.py">勾稽工具源码 recon.py</a><span class="tail"></span>
-<div class="desc">纯 Python 标准库实现：零第三方依赖、离线可运行、结果可复现（固定随机种子合成样例数据）；关键判定均带注释，差异分类与调节表调整项一一对应。协作方式：AI Agent 生成与加固代码，人对匹配规则、数据口径与验收标准逐项裁决（human-in-the-loop），并以预先埋入的差异清单（ground truth）做回归验证——确保 AI 输出可解释、可审计、可复核。</div>
-</div>
-<div class="item">
-<a href="datasets/recon-tool/output/reconciliation.csv">银行余额调节表（CSV）</a><span class="tail"></span>
-<div class="desc">将银行对账单期末余额逐项调节至企业账面期末余额：未达账、银行已记企业未记、金额更正、重复记账分列展示，调整合计与四类差异台账交叉印证（校验差异 0.00）。调节表与差异台账互为审计证据——任何一个数字都能一路追溯到原始流水，这是审计与核算工作最看重的可追溯性。</div>
 </div>
 </section>
 <footer>© Kaito Ayano · 保留所有权利 / All rights reserved</footer>
