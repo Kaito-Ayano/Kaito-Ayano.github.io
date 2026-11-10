@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 应用经验 · README</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #F6F8FA; color: #16324F;
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+    font-size: 15px; line-height: 1.75;
+  }
+  header {
+    background: #16324F; color: #fff; padding: 34px 24px 30px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  .overline { font-size: 12.5px; letter-spacing: 2px; opacity: .78; margin: 0 0 8px; }
+  h1 { margin: 0 0 6px; font-size: 26px; font-weight: 700; font-family: "Times New Roman", "SimSun", "宋体", serif; }
+  .sub { margin: 0; opacity: .85; font-size: 14px; }
+  main { max-width: 860px; margin: 0 auto; padding: 20px 24px 8px; }
+  .card {
+    background: #fff; border: 1px solid #D8E0E8; border-radius: 10px;
+    padding: 18px 22px; margin: 14px 0;
+  }
+  .callout {
+    background: #EDF4F9; border: 1px solid #C9D9E6; border-left: 4px solid #16324F;
+    border-radius: 10px; padding: 14px 18px; margin: 14px 0;
+  }
+  .callout p { margin: 0 0 6px; }
+  .callout p:last-child { margin-bottom: 0; }
+  .gh {
+    display: inline-block; margin-top: 4px; color: #16324F; font-weight: 700;
+    text-decoration: none; border-bottom: 2px solid #3ECFA8; padding-bottom: 2px;
+  }
+  .gh:hover { color: #0E7C7B; }
+  section.item-card { display: flex; gap: 16px; align-items: flex-start; }
+  .badge {
+    flex: 0 0 44px; width: 44px; height: 44px; background: #16324F; color: #fff;
+    border-radius: 9px; display: flex; align-items: center; justify-content: center;
+    font-family: "Times New Roman", serif; font-size: 17px; font-weight: 700;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .item-body { flex: 1 1 auto; min-width: 0; }
+  h2 {
+    margin: 2px 0 10px; font-size: 17.5px; line-height: 1.4;
+    font-family: "Times New Roman", "SimSun", "宋体", serif;
+    display: flex; align-items: center; gap: 9px;
+  }
+  h2 .ic { width: 19px; height: 19px; color: #0E7C7B; flex: 0 0 auto; }
+  .row { margin: 9px 0; }
+  .chip {
+    display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; color: #0E7C7B;
+    border: 1px solid rgba(14,124,123,.38); border-radius: 999px;
+    padding: 1px 10px; margin-right: 8px; vertical-align: 1px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact; white-space: nowrap;
+  }
+  .chip .ic { width: 12px; height: 12px; margin-right: 5px; }
+  .row p { display: inline; margin: 0; }
+  .links { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .links a {
+    display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: #0E7C7B;
+    text-decoration: none; border: 1px solid #0E7C7B; border-radius: 999px; padding: 4px 14px;
+  }
+  .links a:hover { background: #0E7C7B; color: #fff; }
+  .links a .ic { width: 12px; height: 12px; opacity: .8; }
+  h3.sec {
+    font-size: 16.5px; margin: 0 0 8px; font-family: "Times New Roman", "SimSun", "宋体", serif;
+    display: flex; align-items: center; gap: 8px;
+  }
+  h3.sec .ic { width: 17px; height: 17px; color: #0E7C7B; }
+  .flow {
+    margin: 10px 0 4px; padding: 10px 14px; background: #F2F6F9;
+    border-radius: 8px; font-size: 13.5px; color: #33526B;
+  }
+  .muted { color: #5a6b7b; }
+  .small { font-size: 13px; }
+  .ic { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  footer { text-align: center; font-size: 12px; color: #5a6b7b; padding: 16px 0 26px; }
+  footer a { color: #5a6b7b; }
+  @media (max-width: 640px) {
+    section.item-card { flex-direction: column; gap: 8px; }
+    .badge { width: 36px; height: 36px; font-size: 15px; }
+    main { padding: 14px 14px 6px; }
+    .card, .callout { padding: 14px 16px; }
+  }
+  @media print {
+    body { background: #fff; font-size: 13px; }
+    header { padding: 22px 24px; }
+    main { padding: 10px 0; }
+    .card, .callout { border-radius: 8px; }
+    .links a:hover { background: transparent; color: #0E7C7B; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
+    <symbol id="i-usercheck" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+    <symbol id="i-branch" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  </defs>
+</svg>
+
+<header><div class="wrap">
+  <p class="overline">AI APPLICATION PORTFOLIO · FOR REVIEWERS</p>
+  <h1>AI 应用经验 · README</h1>
+  <p class="sub">四段实践：华为年报数据集 / 银行对账工具 / 德勤挑战赛 / LightFit 商业计划</p>
+</div></header>
+
+<main>
+  <div class="callout">
+    <p><strong>摘要</strong>　这份材料整理了四段使用 AI 完成的实践——华为年报多准则数据集与可视化看板、银行流水对账工具（recon）、德勤数字化精英挑战赛的两个应用、LightFit 商业计划与产品。做法是一致的：先明确需求和验收标准，再让 AI 生成初稿或执行具体步骤，最后由人工逐项核对。各项成果均可在链接中打开。</p>
+    <p><svg class="ic" style="width:15px;height:15px;vertical-align:-2px"><use href="#i-github"/></svg> 更多详细内容（看板、Demo、源码）以及其他作品见我的 GitHub 目录页：<a class="gh" href="https://kaito-ayano.github.io/">kaito-ayano.github.io</a></p>
+  </div>
+
+  <section class="card item-card">
+    <div class="badge">01</div>
+    <div class="item-body">
+      <h2><svg class="ic"><use href="#i-db"/></svg>华为年报多准则数据集与可视化看板</h2>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-file"/></svg>概要</span><p>整理华为 2015–2025 共十一个财年年报，建立多准则、多语言的数据集，并做成可视化看板。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-cpu"/></svg>AI Agent 应用领域</span><p>辅助年报信息抽取、字段映射初稿和看板代码生成。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-usercheck"/></svg>人工核对</span><p>字段映射与术语表人工整理；关键数字用 Wind、Choice 两个数据源分别核验；差异分为口径差异、尾差、错值三类处理，口径差异保留原口径、不强行对齐。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-package"/></svg>成果</span><p>四版同构 Excel 工作簿（中/英 IFRS、俄文 МСФО、俄文 РСБУ；28 项财务主指标 + 19 项 ESG 指标）；中英俄三语看板（6 页签 33 张图表）。</p></div>
+      <div class="links">
+        <a href="https://kaito-ayano.github.io/datasets/huawei/02_Dashboard/Huawei_2015-2025_Dashboard.html">交互式看板<svg class="ic"><use href="#i-ext"/></svg></a>
+        <a href="https://kaito-ayano.github.io/datasets/huawei/01_Excel/01_CN_IFRS_Huawei_Annual_Reports_2015-2025.xlsx">中文 IFRS 工作簿<svg class="ic"><use href="#i-ext"/></svg></a>
+        <a href="https://kaito-ayano.github.io/datasets/huawei/03_Documentation/Huawei_Coursework_Trilingual_Note.docx">项目说明<svg class="ic"><use href="#i-ext"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card item-card">
+    <div class="badge">02</div>
+    <div class="item-body">
+      <h2><svg class="ic"><use href="#i-check"/></svg>银行流水 × 账面 逐笔勾稽工具（recon）</h2>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-file"/></svg>概要</span><p>把银行对账单与企业银行存款日记账的逐笔核对（俗称"银行倒盘"）做成一个小工具。本次提供的 AI 协作会话即来自这个项目。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-cpu"/></svg>AI Agent 应用领域</span><p>生成勾稽程序并做加固——先按参考号精确配对，未命中的按"金额 + 对方户名 + 方向 + 日期（±3 天）"做一对一模糊匹配；输出金额不符、日期错位、重复记账、单边四类差异台账和银行余额调节表。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-usercheck"/></svg>人工核对</span><p>需求和验收标准由本人制定，匹配规则和数据口径逐项确认；在数据中预先埋入已知差异，用于检验 AI 的识别结果；程序重跑后调节表与差异台账完全对应（校验差异 0.00）。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-package"/></svg>成果</span><p>recon.py（纯 Python 标准库、离线可复现）、四类差异台账、银行余额调节表（均含"人工复核"列）。</p></div>
+      <div class="links">
+        <a href="https://kaito-ayano.github.io/datasets/recon-tool/recon_report.html">结果报告<svg class="ic"><use href="#i-ext"/></svg></a>
+        <a href="https://kaito-ayano.github.io/datasets/recon-tool/recon.py">源码 recon.py<svg class="ic"><use href="#i-ext"/></svg></a>
+        <a href="https://kaito-ayano.github.io/datasets/recon-tool/output/reconciliation.csv">调节表 CSV<svg class="ic"><use href="#i-ext"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card item-card">
+    <div class="badge">03</div>
+    <div class="item-body">
+      <h2><svg class="ic"><use href="#i-shield"/></svg>德勤数字化精英挑战赛 2026（Deloitte Digital Camp）</h2>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-file"/></svg>概要</span><p>提交 AI 辅助财务分析的治理方案，并上线两个可交互的应用。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-cpu"/></svg>AI Agent 应用领域</span><p>AI Agent 辅助编码，完成 Sentinel（规则初筛 → 团伙关系图谱 → 人工复核留痕）和 Arbiter（风险画像 → 成熟度雷达 → 人工裁决 → 90 天治理路线图，对应 SR 11-7、BCBS 239、欧盟《人工智能法案》）。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-usercheck"/></svg>人工核对</span><p>两个应用都把人工复核留痕做进了流程——AI 只做初筛和画像，裁决由人完成，复核记录可以导出。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-package"/></svg>成果</span><p>两个可公开访问的 Demo、德勤中国官方参赛证书、90 秒讲解视频、开源机读数据集。</p></div>
+      <div class="links">
+        <a href="https://kaito-ayano.github.io/Sentinel/">Sentinel Demo<svg class="ic"><use href="#i-ext"/></svg></a>
+        <a href="https://kaito-ayano.github.io/Arbiter/">Arbiter Demo<svg class="ic"><use href="#i-ext"/></svg></a>
+        <a href="https://kaito-ayano.github.io/Sentinel/media/demo-90s.mp4">90 秒演示视频<svg class="ic"><use href="#i-ext"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card item-card">
+    <div class="badge">04</div>
+    <div class="item-body">
+      <h2><svg class="ic"><use href="#i-heart"/></svg>中国国际大学生创新大赛（中亚赛区）· 轻体 LightFit</h2>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-file"/></svg>概要</span><p>作为三人团队负责人，完成健康管理产品 LightFit 的商业分析与产品交付。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-cpu"/></svg>AI Agent 应用领域</span><p>辅助商业计划书初稿和市场资料整理；Android 端由 AI Agent 辅助编码（五语言界面、端侧 AI 体态识别、AES-256 本地加密、可完全离线）。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-usercheck"/></svg>人工核对</span><p>三年期收入-成本-盈亏平衡模型（约第 18 个月单月盈亏平衡）与多情景敏感性分析（获客成本 +20% 时净利润约 −23%）由本人搭建和测算；AI 产出的每一版都经人工修订后采用。</p></div>
+      <div class="row"><span class="chip"><svg class="ic"><use href="#i-package"/></svg>成果</span><p>中英文商业计划书、数据看板（HTML / 14 页 PDF）、五语言产品 Demo、Android (Java) 源码仓库。</p></div>
+      <div class="links">
+        <a href="https://kaito-ayano.github.io/lightfit-app/demo/lightfit_v8.4.3_demo.html">产品 Demo<svg class="ic"><use href="#i-ext"/></svg></a>
+        <a href="https://kaito-ayano.github.io/business-plan/LightFit-Business-Plan-CN.pdf">商业计划书<svg class="ic"><use href="#i-ext"/></svg></a>
+        <a href="https://github.com/Kaito-Ayano/LightFit-Android">源码仓库<svg class="ic"><use href="#i-ext"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="sec"><svg class="ic"><use href="#i-branch"/></svg>关于方法</h3>
+    <p style="margin:0 0 8px">四段实践中，AI 的使用是递进的。</p>
+    <div class="flow">01 信息抽取与初稿　→　02 可运行的程序　→　03 AI Agent 辅助编码并上线应用　→　04 从文档到端侧产品的全链路</div>
+    <p style="margin:8px 0 0">不变的是验收环节：每个项目在 AI 动手之前先确定验收标准（口径锁定、ground truth 回归、复核留痕、人工测算），AI 的输出必须通过这些标准，才会进入交付物。这也是四个项目对"AI 在财务工作中怎么用"的回答——AI 的产出要能被核验，才算能用。</p>
+  </section>
+
+  <section class="card">
+    <h3 class="sec"><svg class="ic"><use href="#i-info"/></svg>数据说明</h3>
+    <p class="small muted" style="margin:0">华为与 miHoYo 的数据来自公开年报；recon、Sentinel、Arbiter、LightFit 为合成数据或个人原创作品，不含实习单位内部信息、商业秘密或个人敏感信息。</p>
+  </section>
+
+  <footer>Kaito Ayano · <a href="https://kaito-ayano.github.io/" style="color:#5a6b7b">kaito-ayano.github.io</a></footer>
+</main>
+</body>
+</html>
