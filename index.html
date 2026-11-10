@@ -115,18 +115,18 @@
 </section>
 <section>
 <h2>5. 银行流水 × 账面 逐笔勾稽工具（recon）</h2>
-<p class="cnote">个人独立交付 · 合成数据（虚构公司「星桥贸易有限公司」，2026 年 10 月）</p>
+<p class="cnote">AI Agent 协作 · 整理与复盘 ｜ 需求定义 → 方案评审 → 实现验证 → 人工复核兜底 ｜ 合成数据（虚构公司「星桥贸易有限公司」）<br>AI 负责逐笔对账找差异，人工负责裁决与复核——这正是会计「银行倒盘 / 银行对账」的完整流程演示。</p>
 <div class="item">
 <a href="datasets/recon-tool/recon_report.html">银行流水 × 账面 逐笔勾稽 · 结果报告</a><span class="tail">（含四类差异台账与银行余额调节表）</span>
-<div class="desc">严格 1:1 勾稽：参考号配对 → 金额+户名+方向+日期±3天 模糊匹配 → 单边归集；输出金额不符、日期错位、重复记账、单边四类差异台账与平衡的银行余额调节表，全部差异含「人工复核」列。</div>
+<div class="desc">以「需求定义 → 方案评审 → 实现验证」的 AI Agent 协作流程完成：先按参考号精确配对，未命中再按金额+户名+方向+日期（±3 天容差）做 1:1 模糊匹配，严格保证一笔银行记录只对应一笔账面记录，剩余记录归入单边台账。输出金额不符、日期错位、重复记账、单边四类差异台账与平衡的银行余额调节表，每条差异均带「人工复核」列。</div>
 </div>
 <div class="item">
 <a href="datasets/recon-tool/recon.py">勾稽工具源码 recon.py</a><span class="tail"></span>
-<div class="desc">纯 Python 标准库实现，无第三方依赖、不联网；固定种子数据可复现，关键判定含注释。</div>
+<div class="desc">纯 Python 标准库实现：零第三方依赖、离线可运行、结果可复现（固定随机种子合成样例数据）；关键判定均带注释，差异分类与调节表调整项一一对应。协作方式：AI Agent 生成与加固代码，人对匹配规则、数据口径与验收标准逐项裁决（human-in-the-loop），并以预先埋入的差异清单（ground truth）做回归验证——确保 AI 输出可解释、可审计、可复核。</div>
 </div>
 <div class="item">
 <a href="datasets/recon-tool/output/reconciliation.csv">银行余额调节表（CSV）</a><span class="tail"></span>
-<div class="desc">银行期末余额逐项调节至企业账面期末余额，调整合计与差异台账逐项印证（校验差异 0.00）。</div>
+<div class="desc">将银行对账单期末余额逐项调节至企业账面期末余额：未达账、银行已记企业未记、金额更正、重复记账分列展示，调整合计与四类差异台账交叉印证（校验差异 0.00）。调节表与差异台账互为审计证据——任何一个数字都能一路追溯到原始流水，这是审计与核算工作最看重的可追溯性。</div>
 </div>
 </section>
 <footer>© Kaito Ayano · 保留所有权利 / All rights reserved</footer>
