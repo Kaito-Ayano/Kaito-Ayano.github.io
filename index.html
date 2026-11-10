@@ -113,5 +113,21 @@
 <div class="desc">完整数据底层与计算过程，结果可复现、可验证（附机读 JSON）。</div>
 </div>
 </section>
+<section>
+<h2>5. 银行流水 × 账面 逐笔勾稽工具（recon）</h2>
+<p class="cnote">个人独立交付 · 合成数据（虚构公司「星桥贸易有限公司」，2026 年 10 月）</p>
+<div class="item">
+<a href="datasets/recon-tool/recon_report.html">银行流水 × 账面 逐笔勾稽 · 结果报告</a><span class="tail">（含四类差异台账与银行余额调节表）</span>
+<div class="desc">严格 1:1 勾稽：参考号配对 → 金额+户名+方向+日期±3天 模糊匹配 → 单边归集；输出金额不符、日期错位、重复记账、单边四类差异台账与平衡的银行余额调节表，全部差异含「人工复核」列。</div>
+</div>
+<div class="item">
+<a href="datasets/recon-tool/recon.py">勾稽工具源码 recon.py</a><span class="tail"></span>
+<div class="desc">纯 Python 标准库实现，无第三方依赖、不联网；固定种子数据可复现，关键判定含注释。</div>
+</div>
+<div class="item">
+<a href="datasets/recon-tool/output/reconciliation.csv">银行余额调节表（CSV）</a><span class="tail"></span>
+<div class="desc">银行期末余额逐项调节至企业账面期末余额，调整合计与差异台账逐项印证（校验差异 0.00）。</div>
+</div>
+</section>
 <footer>© Kaito Ayano · 保留所有权利 / All rights reserved</footer>
 </main></body></html>

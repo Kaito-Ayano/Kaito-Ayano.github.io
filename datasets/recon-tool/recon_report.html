@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>银行流水 × 账面 逐笔勾稽工具（recon）· 结果报告</title>
+<style>
+  body { font-family: "Times New Roman", "SimSun", "宋体", serif; margin: 0; background: #F6F8FA; color: #16324F; }
+  header { background: #16324F; color: #fff; padding: 34px 24px 28px; }
+  .wrap { max-width: 960px; margin: 0 auto; position: relative; }
+  .back { position: absolute; top: 0; right: 0; font-size: 13px; }
+  .back a { color: #cfe0ee; text-decoration: none; }
+  h1 { margin: 0 0 8px; font-size: 25px; }
+  .sub { margin: 0; opacity: .85; font-size: 14px; }
+  main { max-width: 960px; margin: 0 auto; padding: 22px 24px; }
+  section { background: #fff; border: 1px solid #D8E0E8; border-radius: 10px; padding: 16px 22px; margin: 16px 0; }
+  h2 { font-size: 18px; margin: 0 0 4px; }
+  h3 { font-size: 15px; margin: 18px 0 6px; color: #0E7C7B; }
+  .cnote { font-size: 12.5px; color: #5a6b7b; margin: 0 0 10px; line-height: 1.6; }
+  p { font-size: 13.5px; line-height: 1.7; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 8px 0 4px; }
+  th, td { border: 1px solid #D8E0E8; padding: 5px 7px; text-align: left; vertical-align: top; }
+  th { background: #EEF3F7; font-weight: bold; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  .kpi { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 2px; }
+  .kpi div { flex: 1 1 145px; background: #F2F7F7; border: 1px solid #D8E0E8; border-radius: 8px; padding: 10px 12px; }
+  .kpi b { display: block; font-size: 22px; color: #0E7C7B; }
+  .kpi span { font-size: 12px; color: #5a6b7b; }
+  .pos { color: #0E7C7B; }
+  .neg { color: #B4482B; }
+  code { background: #EEF3F7; padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+  .ok { color: #0E7C7B; font-weight: bold; }
+  footer { text-align: center; font-size: 12px; color: #5a6b7b; padding: 18px; }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="back"><a href="../../index.html">← 返回作品集</a></div>
+<h1>银行流水 × 账面 逐笔勾稽工具（recon）</h1>
+<p class="sub">银行对账单 vs 银行存款日记账 · 差异台账与银行余额调节表 · 结果报告</p>
+</div></header>
+<main>
+
+<section>
+<h2>项目说明</h2>
+<p class="cnote">
+数据为<b>全合成</b>样例（虚构公司「星桥贸易有限公司」，2026 年 10 月），不含任何真实企业或个人数据，可用固定随机种子复现。
+银行对账单与账面日记账各 <b>57 笔</b>。工具以 Python + pandas 无关的标准库实现，在「参考号配对 → 模糊匹配 → 单边归集」的
+流程下完成严格 <b>1:1</b> 勾稽（每条记录至多被消费一次），并输出四类差异台账与银行余额调节表。
+</p>
+</section>
+
+<section>
+<h2>一、结果摘要</h2>
+<div class="kpi">
+  <div><b>51</b><span>成功勾稽（模糊匹配 0）</span></div>
+  <div><b>2</b><span>金额不符</span></div>
+  <div><b>2</b><span>日期错位</span></div>
+  <div><b>1</b><span>疑似重复记账</span></div>
+  <div><b>2</b><span>银行单边（企业未记）</span></div>
+  <div><b>1</b><span>账面单边（未达账）</span></div>
+</div>
+<p class="cnote" style="margin-top:10px">
+行级守恒核验：银行 57 行 ⟶ 勾稽 51 + 金额不符 2 + 日期错位 2 + 银行单边 2 = 57；
+账面 57 行 ⟶ 勾稽 51 + 金额不符 2 + 日期错位 2 + 账面重复 1 + 账面单边 1 = 57。每行恰好被消费一次，无重复计数。
+</p>
+<h3>匹配规则</h3>
+<p class="cnote" style="margin:0">
+<b>Pass 1（参考号）</b>：参考号一致直接配对；参考号对上但金额不同 → 金额不符（含差额）；
+金额相同但日期不同 → 日期错位（含天数差）；参考号在任一侧出现多次 → 报告并标记疑似重复。<br>
+<b>Pass 2（模糊）</b>：参考号无法配对的，按「金额 + 对方户名 + 收付方向 + 日期 ±3 天」就近唯一匹配。<br>
+<b>余项</b>：未被消费的记录归入单边——银行单边（企业未记）与账面单边（未达账）。
+</p>
+</section>
+
+<section>
+<h2>二、差异台账</h2>
+
+<h3>A. 金额不符（2 笔）</h3>
+<table>
+<tr><th>银行日期</th><th class="num">银行金额</th><th>账面日期</th><th class="num">账面金额</th><th class="num">差额（账面−银行）</th><th>参考号</th><th>摘要</th></tr>
+<tr><td>2026-10-03</td><td class="num">45,000.00</td><td>2026-10-03</td><td class="num">45,600.00</td><td class="num pos">+600.00</td><td>REF-20261003-007</td><td>销售回款</td></tr>
+<tr><td>2026-10-15</td><td class="num">8,925.50</td><td>2026-10-15</td><td class="num">8,955.50</td><td class="num neg">+30.00</td><td>REF-20261015-032</td><td>10月运输费</td></tr>
+</table>
+
+<h3>B. 日期错位（2 笔）</h3>
+<table>
+<tr><th>银行日期</th><th>账面日期</th><th class="num">天数差（账面−银行）</th><th class="num">金额</th><th>参考号</th><th>摘要</th></tr>
+<tr><td>2026-10-12</td><td>2026-10-09</td><td class="num">-3</td><td class="num">66,000.00</td><td>REF-20261009-015</td><td>货款（宁波汇金塑业）</td></tr>
+<tr><td>2026-10-27</td><td>2026-10-30</td><td class="num">+3</td><td class="num">23,400.00</td><td>REF-20261028-055</td><td>Q4广告首期款（上海启明广告）</td></tr>
+</table>
+<p class="cnote">金额、户名、参考号一致，仅记账日期不同；两侧日期差均在 ±3 天容差内，判定为同笔业务的口径差异，非未达账。</p>
+
+<h3>C. 疑似重复记账（1 笔）</h3>
+<table>
+<tr><th>日期</th><th>收付方向</th><th class="num">金额</th><th>对方户名</th><th>参考号</th><th>备注</th></tr>
+<tr><td>2026-10-11</td><td>支出</td><td class="num">5,800.00</td><td>北京瑞鑫办公用品有限公司</td><td>REF-20261011-020</td><td>参考号在账面侧出现 2 次（银行 1 次）——疑似重复记账</td></tr>
+</table>
+<p class="cnote">
+⚠ 参考号在任一侧出现多次需人工复核：本数据中仅 <code>REF-20261011-020</code>（银行 1 次 / 账面 2 次）。
+工具取其中一笔与银行配对，多余一笔单列为疑似重复，避免同笔差异被重复计量。
+</p>
+
+<h3>D. 单边记录</h3>
+<table>
+<tr><th>来源</th><th>日期</th><th>收付方向</th><th class="num">金额</th><th>对方户名</th><th>参考号</th><th>说明</th></tr>
+<tr><td>银行单边</td><td>2026-10-08</td><td>支出</td><td class="num">120.00</td><td>银行费用</td><td>REF-20261008-012</td><td>账户管理费，账面漏记</td></tr>
+<tr><td>银行单边</td><td>2026-10-19</td><td>收入</td><td class="num">86.40</td><td>计息</td><td>REF-20261019-041</td><td>存款利息，账面漏记</td></tr>
+<tr><td>账面单边</td><td>2026-10-22</td><td>支出</td><td class="num">15,000.00</td><td>苏州锦程电子有限公司</td><td>REF-20261022-048</td><td>采购预付款（支票 No.1031），10 月未兑付（未达账）</td></tr>
+</table>
+</section>
+
+<section>
+<h2>三、银行余额调节表（2026-10-31）</h2>
+<p class="cnote">从银行对账单期末余额调节至企业账面日记账期末余额；每一项调整均可对应到上表差异台账中的具体记录。</p>
+<table>
+<tr><th>项目</th><th class="num">金额</th><th>说明</th></tr>
+<tr><td>期初余额（2026-10-01，双方一致）</td><td class="num">1,280,000.00</td><td>银行与账面期初一致</td></tr>
+<tr><td>银行对账单期末余额（2026-10-31）</td><td class="num">884,007.71</td><td>银行流水合计 −395,992.29</td></tr>
+<tr><td>金额不符更正：REF-20261003-007（账面 45,600.00 vs 银行 45,000.00）</td><td class="num pos">+600.00</td><td>调整项[金额不符]</td></tr>
+<tr><td>银行已付、企业未记：账户管理费（REF-20261008-012）</td><td class="num pos">+120.00</td><td>调整项[银行单边]</td></tr>
+<tr><td>疑似账面重复记账：REF-20261011-020（办公设备采购）</td><td class="num neg">−5,800.00</td><td>调整项[账面重复]</td></tr>
+<tr><td>金额不符更正：REF-20261015-032（账面 8,955.50 vs 银行 8,925.50）</td><td class="num neg">−30.00</td><td>调整项[金额不符]</td></tr>
+<tr><td>银行已收、企业未记：存款利息（REF-20261019-041）</td><td class="num neg">−86.40</td><td>调整项[银行单边]</td></tr>
+<tr><td>企业已付、银行未记（未达账）：采购预付款（支票 No.1031）（REF-20261022-048）</td><td class="num neg">−15,000.00</td><td>调整项[账面单边（未达账）]</td></tr>
+<tr><td><b>—— 分类型小计 ——</b></td><td class="num"></td><td></td></tr>
+<tr><td>小计：金额不符</td><td class="num pos">+570.00</td><td>2 笔</td></tr>
+<tr><td>小计：银行单边</td><td class="num pos">+33.60</td><td>2 笔</td></tr>
+<tr><td>小计：账面单边（未达账）</td><td class="num neg">−15,000.00</td><td>1 笔</td></tr>
+<tr><td>小计：账面重复</td><td class="num neg">−5,800.00</td><td>1 笔</td></tr>
+<tr><td>小计：银行侧重复</td><td class="num">+0.00</td><td>0 笔</td></tr>
+<tr><td><b>调整合计</b></td><td class="num neg"><b>−20,196.40</b></td><td>共 6 项，与差异台账 6 行一一对应</td></tr>
+<tr><td><b>企业账面期末余额（调节后）</b></td><td class="num"><b>863,811.31</b></td><td>= 银行期末余额 + 调整合计</td></tr>
+<tr><td>企业账面日记账期末余额（实际）</td><td class="num">863,811.31</td><td>账面流水合计 −416,188.69</td></tr>
+<tr><td>校验差异</td><td class="num ok">0.00</td><td class="ok">调节平衡</td></tr>
+<tr><td>调整项笔数 vs 台账行数</td><td class="num">6 vs 6</td><td class="ok">一致</td></tr>
+</table>
+<p class="cnote" style="margin-top:8px">
+期末差额（银行 − 账面）= 20,196.40，构成：未达账 +15,000 + 账面重复 +5,800 + 金额不符净额 −570
++ 银行单边净额 −33.60。调节表逐项与差异台账互印证，且调整项笔数（6）与台账行数（6）一致。
+</p>
+</section>
+
+<section>
+<h2>四、输出与复现</h2>
+<p class="cnote">
+工具输出至 <code>output/</code>：<code>matched.csv</code>、<code>amount_mismatch.csv</code>、<code>date_shift.csv</code>、
+<code>duplicate_ledger.csv</code>、<code>bank_only.csv</code>、<code>ledger_only.csv</code> 与 <code>reconciliation.csv</code>。
+所有差异台账均含空的「人工复核」列，人工填写后另存为 <code>*_reviewed.csv</code>，不覆盖原始输出。
+</p>
+<p class="cnote" style="margin:0">
+复现命令：<code>python recon.py</code>　　依赖：仅 Python 标准库（无第三方依赖、不联网）。
+</p>
+</section>
+
+<footer>© Kaito Ayano · 保留所有权利 / All rights reserved</footer>
+</main></body></html>

@@ -113,5 +113,21 @@
 <div class="desc">The full data layer and calculations; results are reproducible and verifiable (machine-readable JSON included).</div>
 </div>
 </section>
+<section>
+<h2>5. Bank-Statement × Ledger Reconciliation Tool (recon)</h2>
+<p class="cnote">Personal delivery · synthetic data (fictional "Xingqiao Trading Co., Ltd.", October 2026)</p>
+<div class="item">
+<a href="datasets/recon-tool/recon_report.html">Bank Statement × Ledger Reconciliation · Results Report</a><span class="tail"> (four difference ledgers + reconciliation statement)</span>
+<div class="desc">Strict 1:1 matching — reference-number pairing → amount + counterparty + direction + date ±3-day fuzzy match → one-sided capture; four difference ledgers (amount, date, duplicate, one-sided) plus a balancing bank reconciliation statement, each with a manual-review column.</div>
+</div>
+<div class="item">
+<a href="datasets/recon-tool/recon.py">Reconciliation Tool Source · recon.py</a><span class="tail"></span>
+<div class="desc">Pure Python standard library, no third-party dependencies and no network; reproducible on fixed-seed data, with commented decision rules.</div>
+</div>
+<div class="item">
+<a href="datasets/recon-tool/output/reconciliation.csv">Bank Reconciliation Statement (CSV)</a><span class="tail"></span>
+<div class="desc">Reconciles the bank closing balance to the book closing balance; the adjustment total cross-checks item by item with the difference ledgers (variance 0.00).</div>
+</div>
+</section>
 <footer>© Kaito Ayano · All rights reserved</footer>
 </main></body></html>
