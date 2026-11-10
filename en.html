@@ -60,7 +60,23 @@
 </div>
 </section>
 <section>
-<h2>2. Deloitte Digital Camp 2026</h2>
+<h2>2. Bank-Statement × Ledger Reconciliation Tool (recon)</h2>
+<p class="cnote">AI-agent collaboration · delivery & acceptance ｜ Requirement definition → plan review → implementation & verification → human sign-off ｜ Synthetic data (fictional "Xingqiao Trading Co., Ltd.")<br>AI does the line-by-line matching and flags the differences; humans arbitrate and review — a full walkthrough of the bank-reconciliation workflow in accounting.</p>
+<div class="item">
+<a href="datasets/recon-tool/recon_report.html">Bank Statement × Ledger Reconciliation · Results Report</a><span class="tail"> (four difference ledgers + reconciliation statement)</span>
+<div class="desc">Completed through an AI-agent workflow of requirement definition → plan review → implementation & verification: reference-number pairing first, then a strict 1:1 fuzzy match on amount + counterparty + direction + date (±3-day tolerance), with unmatched records routed to one-sided ledgers — one bank record maps to exactly one book record. Outputs four difference ledgers (amount mismatch, date shift, duplicates, one-sided) plus a balancing bank reconciliation statement, each entry with a manual-review column.</div>
+</div>
+<div class="item">
+<a href="datasets/recon-tool/recon.py">Reconciliation Tool Source · recon.py</a><span class="tail"></span>
+<div class="desc">Pure Python standard library: zero third-party dependencies, fully offline, reproducible on fixed-seed synthetic data; key decision rules are commented, and difference classifications map one-to-one to the reconciliation adjustments. The AI agent drafted and hardened the code, while the human arbitrated matching rules, data definitions and acceptance criteria (human-in-the-loop), regression-verified against a pre-seeded difference list (ground truth) — keeping the AI output explainable, auditable and reviewable.</div>
+</div>
+<div class="item">
+<a href="datasets/recon-tool/output/reconciliation.csv">Bank Reconciliation Statement (CSV)</a><span class="tail"></span>
+<div class="desc">Reconciles the bank closing balance to the book closing balance item by item: items in transit, bank-only entries, amount corrections and duplicates listed separately; the adjustment total cross-checks against the four difference ledgers (variance 0.00). The statement and the ledgers serve as audit evidence for each other — every figure traces back to the raw bank lines, the traceability audit and accounting work depend on.</div>
+</div>
+</section>
+<section>
+<h2>3. Deloitte Digital Camp 2026</h2>
 <div class="item">
 <a href="https://kaito-ayano.github.io/Sentinel/">Interactive Audit Demo: Sentinel</a><span class="tail"></span>
 <div class="desc">A three-stage digital audit workflow — rule-based screening, fraud-ring graph, documented human review; adjustable thresholds, one-click export of review logs, reproducible synthetic data.</div>
@@ -75,7 +91,7 @@
 </div>
 </section>
 <section>
-<h2>3. China International College Students' Innovation Competition (Central Asia) · LightFit</h2>
+<h2>4. China International College Students' Innovation Competition (Central Asia) · LightFit</h2>
 <div class="item">
 <a href="lightfit-app/demo/lightfit_v8.4.3_demo.html">LightFit v8.4.3 Standalone Demo</a><span class="tail"></span>
 <div class="desc">A complete interactive demo of the everyday health-management platform; five languages (Chinese, English, Russian, Kazakh, Korean); opens directly in a browser, no installation required.</div>
@@ -103,7 +119,7 @@
 </div>
 </section>
 <section>
-<h2>4. Further Financial Analysis Practice</h2>
+<h2>5. Further Financial Analysis Practice</h2>
 <div class="item">
 <a href="datasets/mihoyo/02_Dashboard/miHoYo_Dashboard.html">miHoYo 2014–2025 Financial Analysis Dashboard</a><span class="tail"></span>
 <div class="desc">A decade of financial performance at a growth-stage games company: revenue mix, R&D intensity and profit trends.</div>
@@ -111,22 +127,6 @@
 <div class="item">
 <a href="datasets/mihoyo/01_Excel/miHoYo_Financial_Analysis_2014-2025.xlsx">miHoYo Financial Workbook & Raw Data</a><span class="tail"></span>
 <div class="desc">The full data layer and calculations; results are reproducible and verifiable (machine-readable JSON included).</div>
-</div>
-</section>
-<section>
-<h2>5. Bank-Statement × Ledger Reconciliation Tool (recon)</h2>
-<p class="cnote">Personal delivery · synthetic data (fictional "Xingqiao Trading Co., Ltd.", October 2026)</p>
-<div class="item">
-<a href="datasets/recon-tool/recon_report.html">Bank Statement × Ledger Reconciliation · Results Report</a><span class="tail"> (four difference ledgers + reconciliation statement)</span>
-<div class="desc">Strict 1:1 matching — reference-number pairing → amount + counterparty + direction + date ±3-day fuzzy match → one-sided capture; four difference ledgers (amount, date, duplicate, one-sided) plus a balancing bank reconciliation statement, each with a manual-review column.</div>
-</div>
-<div class="item">
-<a href="datasets/recon-tool/recon.py">Reconciliation Tool Source · recon.py</a><span class="tail"></span>
-<div class="desc">Pure Python standard library, no third-party dependencies and no network; reproducible on fixed-seed data, with commented decision rules.</div>
-</div>
-<div class="item">
-<a href="datasets/recon-tool/output/reconciliation.csv">Bank Reconciliation Statement (CSV)</a><span class="tail"></span>
-<div class="desc">Reconciles the bank closing balance to the book closing balance; the adjustment total cross-checks item by item with the difference ledgers (variance 0.00).</div>
 </div>
 </section>
 <footer>© Kaito Ayano · All rights reserved</footer>
