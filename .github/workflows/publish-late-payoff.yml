@@ -1,0 +1,43 @@
+name: Publish The Late Payoff
+
+on:
+  push:
+    paths:
+      - "site-source/late-payoff.txt"
+      - ".github/workflows/publish-late-payoff.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-late-payoff
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the profile site
+        uses: actions/checkout@v4
+
+      - name: Fetch the frozen page
+        run: |
+          SITE_ARTIFACT=$(tr -d '\r\n' < site-source/late-payoff.txt)
+          test -n "$SITE_ARTIFACT"
+          mkdir -p the-late-payoff
+          curl -fL --retry 3 --retry-delay 2 "$SITE_ARTIFACT" -o the-late-payoff/index.html
+          test -s the-late-payoff/index.html
+          printf 'page bytes: %s\n' "$(wc -c < the-late-payoff/index.html)"
+
+      - name: Commit the page if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add the-late-payoff/index.html
+          if git diff --cached --quiet; then
+            echo "No change in the published page."
+            exit 0
+          fi
+          git commit -m "Publish The Late Payoff page"
+          git push
